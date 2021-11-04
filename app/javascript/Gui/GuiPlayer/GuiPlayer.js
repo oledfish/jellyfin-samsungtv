@@ -170,9 +170,6 @@ GuiPlayer.startPlayback = function(TranscodeAlg, resumeTicksSamsung) {
 	this.PlaySessionId = playbackInfo ? playbackInfo.PlaySessionId : null;
 
 	var url = this.playingURL + '&PlaySessionId=' + this.PlaySessionId;
-	
-	//Update URL with resumeticks
-	url += '&StartTimeTicks=' + (resumeTicksSamsung*10000);
 
 	//Required for HLS streaming
 	if (this.PlayMethod != "DirectPlay") {
@@ -866,9 +863,6 @@ GuiPlayer.newPlaybackPosition = function(startPositionTicks) {
 	this.setDisplaySize();
 	
 	var url = this.playingURL + '&PlaySessionId=' + this.PlaySessionId;
-	
-	//Update URL with startPositionTicks
-	url += '&StartTimeTicks=' + (Math.round(startPositionTicks));
 
 	//Required for HLS streaming
 	if (this.PlayMethod != "DirectPlay") {
