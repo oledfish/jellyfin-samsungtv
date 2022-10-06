@@ -504,7 +504,7 @@ Server.DELETE = function(url, item) {
 Server.testConnectionSettings = function (server,fromFile) {	
 	xmlHttp = new XMLHttpRequest();
 	if (xmlHttp) {
-		xmlHttp.open("GET", "http://" + server + "/jellyfin/System/Info/Public?format=json",false);
+		xmlHttp.open("GET", "http://" + server + "/emby/System/Info/Public?format=json",false);
 		xmlHttp.setRequestHeader("Content-Type", 'application/json');
 		xmlHttp.onreadystatechange = function () {
 			GuiNotifications.setNotification("Connection Test","Network Status",true);
@@ -515,7 +515,7 @@ Server.testConnectionSettings = function (server,fromFile) {
 			    		File.saveServerToFile(json.Id,json.ServerName,server); 
 			    	}
 			       	//Set Server.serverAddr!
-			       	Server.setServerAddr("http://" + server + "/jellyfin");
+			       	Server.setServerAddr("http://" + server + "/emby");
 			       	//Check Server Version
 			       	if (ServerVersion.checkServerVersion()) {
 			       		GuiUsers.start(true);
