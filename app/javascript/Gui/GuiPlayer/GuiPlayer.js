@@ -172,9 +172,9 @@ GuiPlayer.startPlayback = function(TranscodeAlg, resumeTicksSamsung) {
 	var url = this.playingURL + '&PlaySessionId=' + this.PlaySessionId;
 
 	//Required for HLS streaming
-	if (this.PlayMethod != "DirectPlay") {
+	/*if (this.PlayMethod != "DirectPlay") {
 		url += '|COMPONENT=HLS';
-	}
+	}*/
 
 	//Update Server content is playing * update time
 	Server.videoStarted(this.PlayerData.Id,this.playingMediaSource.Id,this.PlayMethod,this.PlaySessionId);
@@ -865,9 +865,9 @@ GuiPlayer.newPlaybackPosition = function(startPositionTicks) {
 	var url = this.playingURL + '&PlaySessionId=' + this.PlaySessionId;
 
 	//Required for HLS streaming
-	if (this.PlayMethod != "DirectPlay") {
+	/*if (this.PlayMethod != "DirectPlay") {
 		url += '|COMPONENT=HLS';
-	}
+	}*/
 	
 	var position = Math.round(startPositionTicks / 10000000);
     this.plugin.ResumePlay(url,position);
